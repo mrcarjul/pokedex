@@ -1,5 +1,7 @@
 import React from 'react';
-import {StatusBar} from 'react-native';
+
+// Personalized Components
+import {PokeStatusBar} from './src/components';
 
 // Navigation
 import AppNavigation from './src/navigation';
@@ -7,7 +9,7 @@ import AppNavigation from './src/navigation';
 function App() {
   return (
     <>
-      <StatusBar barStyle="dark-content" />
+      <PokeStatusBar />
       <AppNavigation />
     </>
   );
