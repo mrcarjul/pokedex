@@ -1,17 +1,20 @@
 const colors = {
   black: '#0a0a0a',
   gray: '#3F3F3F',
-  green: '#3C948B',
-  greenAlt: '#1f4b47',
-  lightGreen: '#b9e3de',
-  white: '#fefefe',
+  green: '#22C599',
+  lightGreen: '#9DDC97',
+  purple: '#D3DCFD',
+  purpleAlt: '#D6CBFE',
+  blue: '#B8D3FD',
+  lightBlue: '#D2DDFE',
+  white: '#F5F5FD',
   whiteAlt: '#f1f1f1',
 };
 
 const ThemeColors = {
-  primary: colors.green,
-  background: colors.gray,
-  backgroundAlt: colors.white,
+  primary: colors.white,
+  background: colors.purple,
+  backgroundAlt: colors.purpleAlt,
   backgroundSecondaryAlt: colors.whiteAlt,
   text: colors.black,
   textAlt: colors.lightGreen,
