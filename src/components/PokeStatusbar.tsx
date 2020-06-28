@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, memo} from 'react';
 
 // Core
 import {
@@ -54,4 +54,4 @@ function PokeStatusbar() {
   );
 }
 
-export default PokeStatusbar;
+export default memo(PokeStatusbar);

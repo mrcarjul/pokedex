@@ -17,7 +17,7 @@ import {colors, genericStyles, metrics} from '../theme';
 import PropTypes from 'prop-types';
 
 interface PokeHeaderProps {
-  leftContent: ReactElement;
+  leftContent?: ReactElement;
   rightContent?: ReactElement;
   centerTxt: string;
   txtStyle?: StyleProp<TextStyle>;
@@ -75,8 +75,9 @@ const styles = StyleSheet.create({
     zIndex: 30,
   },
   titleTxt: {
-    color: colors.primary,
+    color: colors.text,
     fontWeight: 'bold',
+    fontSize: 24,
     textAlign: 'center',
   },
 });
