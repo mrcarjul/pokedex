@@ -5,6 +5,9 @@ import {StyleSheet} from 'react-native';
  * @returns {StyleProp} with reusable styles objects
  */
 export default StyleSheet.create({
+  alignItemsCenter: {
+    alignItems: 'center',
+  },
   container: {
     flex: 1,
   },
