@@ -14,7 +14,7 @@ const initialState = {
   show_id: null,
   offset: 0,
   pokemons: [],
-  pokemon: null,
+  pokemon: {},
 };
 
 export default function pokemons(
