@@ -36,6 +36,8 @@ interface PokemonData {
   base_experience: number;
   forms: baseData;
   game_indices: gameIndices[];
+  id: number;
+  name: string;
 }
 
 interface requestDataAction {
@@ -83,7 +85,7 @@ export const requestPokemonsDataSuccess = (
   payload,
   offset,
 });
-export const requestPokemonsDetailDataSuccess = (payload: PokemonData[]) => ({
+export const requestPokemonsDetailDataSuccess = (payload: PokemonData) => ({
   type: REQUEST_POKEMONS_DETAIL_DATA_SUCCESS,
   payload,
 });
@@ -93,12 +95,15 @@ export const requestPokemonsDetailDataSuccess = (payload: PokemonData[]) => ({
  * @param {object} payload containing api response
  */
 const validateApiResponse = (payload: PokemonData) => {
-  const {abilities, forms, base_experience, game_indices} = payload || {};
+  const {abilities, forms, base_experience, game_indices, id, name} =
+    payload || {};
   if (
     abilities !== undefined &&
     forms !== undefined &&
     base_experience !== undefined &&
-    game_indices !== undefined
+    game_indices !== undefined &&
+    id !== undefined &&
+    name !== undefined
   ) {
     return false;
   }
@@ -108,13 +113,14 @@ const validateApiResponse = (payload: PokemonData) => {
 /**
  * @description PokeApi returns too much info from pokemons that is never used this function clears payload from unused data
  */
-const getPokemonsOnlyUsableData = (payload: PokemonData[]) =>
-  payload.map((data: PokemonData) => ({
-    abilities: data.abilities,
-    forms: data.forms,
-    base_experience: data.base_experience,
-    game_indices: data.game_indices,
-  }));
+const getPokemonsOnlyUsableData = (payload: PokemonData) => ({
+  abilities: payload.abilities,
+  forms: payload.forms,
+  base_experience: payload.base_experience,
+  game_indices: payload.game_indices,
+  id: payload.id,
+  name: payload.name,
+});
 
 /**
  * @description Calls api to retrieve pokemons data
@@ -151,16 +157,22 @@ export const getPokemonDetailByIdAction = (id: number) => async (
     dispatch(requestData());
     const response = await getPokemonData(id);
     if (response && response.data) {
-      const samplePayload = response.data.length ? response.data[0] : {};
-      if (validateApiResponse(samplePayload)) {
+      if (validateApiResponse(response.data)) {
         dispatch(requestDataFailure(badResponse));
-        return;
+        return false;
       }
-      dispatch(requestPokemonsDetailDataSuccess(response.data));
+      dispatch(
+        requestPokemonsDetailDataSuccess(
+          getPokemonsOnlyUsableData(response.data),
+        ),
+      );
+      return true;
     } else {
       dispatch(requestDataFailure(badResponse));
+      return false;
     }
   } catch (error) {
     dispatch(requestDataFailure(networkError));
+    return false;
   }
 };
