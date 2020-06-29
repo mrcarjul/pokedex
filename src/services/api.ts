@@ -23,7 +23,7 @@ const create = (baseURL: string = API_URL) => {
    * @description Requests Pokemon detailed Data
    * @param {number} id Pokemon id
    */
-  const getPokemonData = (id: string) => api.get(`/pokemon/${id}`);
+  const getPokemonData = (id: number) => api.get(`/pokemon/${id}`);
 
   return {
     getPokemons,
