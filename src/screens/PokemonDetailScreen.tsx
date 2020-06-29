@@ -49,7 +49,9 @@ function PokemonDetailScreen({navigation}: NavigationStackScreenProps) {
           </View>
           <View style={styles.contentSection}>
             {abilities.map(({ability}: abilityProps) => (
-              <Text style={styles.contentText}>{ability.name}</Text>
+              <Text key={ability.name} style={styles.contentText}>
+                {ability.name}
+              </Text>
             ))}
           </View>
           <View style={styles.headerSection}>
@@ -63,7 +65,9 @@ function PokemonDetailScreen({navigation}: NavigationStackScreenProps) {
           </View>
           <View style={styles.contentSection}>
             {forms.map((form: baseProps) => (
-              <Text style={styles.contentText}>{form.name}</Text>
+              <Text key={form.name} style={styles.contentText}>
+                {form.name}
+              </Text>
             ))}
           </View>
           <View style={styles.headerSection}>
@@ -71,7 +75,9 @@ function PokemonDetailScreen({navigation}: NavigationStackScreenProps) {
           </View>
           <View style={styles.contentSection}>
             {game_indices.map((game: gameProps) => (
-              <Text style={styles.contentText}>{game.version.name}</Text>
+              <Text key={game.version.name} style={styles.contentText}>
+                {game.version.name}
+              </Text>
             ))}
           </View>
         </ScrollView>
