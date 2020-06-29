@@ -1,4 +1,4 @@
-import React, {version} from 'react';
+import React from 'react';
 
 // Core
 import {ScrollView, StyleSheet, Text, View} from 'react-native';
