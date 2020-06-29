@@ -15,7 +15,7 @@ import PropTypes from 'prop-types';
 interface PokeSectionProps {
   name: string;
   pokemonId: string;
-  onPress: () => void;
+  onPress?: () => void;
 }
 
 /**
