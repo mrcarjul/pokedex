@@ -15,7 +15,7 @@ const ThemeColors = {
   primary: colors.white,
   background: colors.purple,
   backgroundAlt: colors.purpleAlt,
-  backgroundSecondaryAlt: colors.whiteAlt,
+  backgroundSecondaryAlt: colors.blue,
   text: colors.black,
   textAlt: colors.lightGreen,
   textSecondaryAlt: colors.white,

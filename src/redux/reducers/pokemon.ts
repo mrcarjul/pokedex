@@ -14,7 +14,7 @@ const initialState = {
   show_id: null,
   offset: 0,
   pokemons: [],
-  pokemon: null,
+  pokemon: {},
 };
 
 export default function pokemons(
@@ -46,7 +46,7 @@ export default function pokemons(
         fetching: false,
         error: null,
         errorMsg: null,
-        page: action.offset || 0,
+        offset: action.offset || 0,
       };
     case REQUEST_POKEMONS_DETAIL_DATA_SUCCESS:
       return {

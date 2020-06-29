@@ -52,7 +52,7 @@ function PokeButton({
   }
 
   return (
-    <TouchableOpacity style={style} {...props}>
+    <TouchableOpacity style={style} onPress={onPress} {...props}>
       {children}
     </TouchableOpacity>
   );

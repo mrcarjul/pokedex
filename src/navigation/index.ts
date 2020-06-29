@@ -5,13 +5,19 @@ import {createStackNavigator} from 'react-navigation-stack';
 import PokedexScreen from '../screens/PokedexScreen';
 import PokemonDetailScreen from '../screens/PokemonDetailScreen';
 
-const AppNavigator = createStackNavigator({
-  Pokedex: {
-    screen: PokedexScreen,
+const AppNavigator = createStackNavigator(
+  {
+    Pokedex: {
+      screen: PokedexScreen,
+    },
+    PokemonDetail: {
+      screen: PokemonDetailScreen,
+    },
   },
-  PokemonDetail: {
-    screen: PokemonDetailScreen,
+  {
+    initialRouteName: 'Pokedex',
+    headerMode: 'none',
   },
-});
+);
 
 export default createAppContainer(AppNavigator);

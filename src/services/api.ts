@@ -17,7 +17,7 @@ const create = (baseURL: string = API_URL) => {
    * @param {number} offset position for pagination
    */
   const getPokemons = (offset: number) =>
-    api.get(`/pokemon?offset=${offset}&limit=54'`);
+    api.get(`/pokemon?offset=${offset}&limit=30'`);
 
   /**
    * @description Requests Pokemon detailed Data

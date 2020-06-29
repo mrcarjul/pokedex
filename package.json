@@ -34,6 +34,7 @@
     "@types/jest": "^26.0.3",
     "@types/react": "^16.9.41",
     "@types/react-native": "^0.62.14",
+    "@types/react-redux": "^7.1.9",
     "@types/react-test-renderer": "^16.9.2",
     "@welldone-software/why-did-you-render": "^4.2.5",
     "babel-jest": "^24.9.0",
