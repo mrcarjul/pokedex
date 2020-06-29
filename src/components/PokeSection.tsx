@@ -1,17 +1,7 @@
 import React, {memo} from 'react';
 
 // Core
-import {
-  Image,
-  StyleSheet,
-  TouchableOpacity,
-  TouchableNativeFeedbackProps,
-  TouchableOpacityProps,
-  View,
-  ViewStyle,
-  ViewPropTypes,
-  Text,
-} from 'react-native';
+import {Image, StyleSheet, View, ViewPropTypes, Text} from 'react-native';
 
 // Personalized components
 import PokeButton from './PokeButton';
@@ -32,7 +22,6 @@ interface PokeSectionProps {
  * @description Generic button container to manage correct touchable in given platform
  */
 function PokeSection({name, pokemonId, onPress}: PokeSectionProps) {
-  console.log(pokemonId);
   return (
     <PokeButton
       style={styles.section}
@@ -64,17 +53,18 @@ const styles = StyleSheet.create({
   bottomContainer: {
     flex: 1,
     alignItems: 'center',
+    justifyContent: 'center',
   },
   image: {
-    width: metrics.width / 3 - 80,
-    height: metrics.width / 3 - 80,
+    width: metrics.width / 3 - 90,
+    height: metrics.width / 3 - 90,
   },
   section: {
     backgroundColor: colors.background,
     borderRadius: 15,
     height: metrics.width / 3 - 20,
     margin: 10,
-    padding: 20,
+    padding: 10,
     width: metrics.width / 3 - 20,
   },
   top: {
