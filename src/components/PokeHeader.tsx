@@ -10,6 +10,9 @@ import {
   ViewStyle,
 } from 'react-native';
 
+// Personalized components
+import PokeButton from './PokeButton';
+
 // Themes
 import {colors, genericStyles, metrics} from '../theme';
 
@@ -17,7 +20,7 @@ import {colors, genericStyles, metrics} from '../theme';
 import PropTypes from 'prop-types';
 
 interface PokeHeaderProps {
-  leftContent?: ReactElement;
+  goBack?: () => void;
   rightContent?: ReactElement;
   centerTxt: string;
   txtStyle?: StyleProp<TextStyle>;
@@ -26,14 +29,14 @@ interface PokeHeaderProps {
 
 /**
  * @description Header component
- * @param {element} leftContent
+ * @param {function} goBack
  * @param {element} rightContent
  * @param {string} centerTxt Title txt of the header
  * @param {object} txtStyle Title txt style
  * @param {object} headerStyle Personalized styles for component
  */
 function PokeHeader({
-  leftContent,
+  goBack,
   centerTxt,
   rightContent,
   txtStyle,
@@ -47,7 +50,17 @@ function PokeHeader({
         styles.pokeHeader,
         headerStyle,
       ]}>
-      <View style={styles.container}>{leftContent}</View>
+      {goBack ? (
+        <PokeButton
+          style={styles.container}
+          onPress={goBack}
+          borderless={true}
+          pressColor={colors.background}>
+          <Text style={styles.goBack}> {'<'} </Text>
+        </PokeButton>
+      ) : (
+        <View style={styles.container} />
+      )}
       <View style={styles.title}>
         <Text style={[styles.titleTxt, txtStyle]}>{centerTxt}</Text>
       </View>
@@ -67,10 +80,16 @@ PokeHeader.propTypes = {
 const styles = StyleSheet.create({
   ...genericStyles,
   pokeHeader: {
-    height: 54,
+    height: metrics.navBarHeight,
+  },
+  goBack: {
+    color: colors.text,
+    fontWeight: 'bold',
+    fontSize: 26,
+    textAlign: 'center',
   },
   title: {
-    height: metrics.navBarHeight,
+    flex: 5,
     paddingVertical: 10,
     zIndex: 30,
   },
